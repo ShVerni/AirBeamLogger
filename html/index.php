@@ -101,8 +101,8 @@ $(function() {
 <body>
 <h1>Welcome to the Data Server</h1>
 <p><a style="font-size: x-large; font-weight: bold;"  href="output.csv">Data File</a></p>
-<p><button onclick="start()">Start Datalogger</button></p>
-<p><button onclick="stop()">Stop Datalogger</button></p>
+<p><button onclick="start()">Start Data Logger</button></p>
+<p><button onclick="stop()">Stop Data Logger</button></p>
 <p><button onclick="clear_data()">Clear Data</button></p>
 <p><button onclick="start_shutdown()">Shutdown</button></p>
 <form id="settings">
