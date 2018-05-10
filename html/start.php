@@ -9,7 +9,7 @@ if ($port != "")
 	exec("sudo pkill python3");
 	// Start the data logger.
 	exec("sudo python3 /home/pi/data_logger.py > /dev/null &");
-	echo("Started Datalogger");
+	echo("Started Data Logger");
 }
 else
 {
