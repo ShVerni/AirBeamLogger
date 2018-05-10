@@ -65,29 +65,33 @@ $.ajax( { type : 'POST',
         });
 }
 function update_settings(setting) {
-var use_date = 0;
-if ($("#date").prop('checked')) {
-	use_date = 1;
-}
-var use_ntp = 0;
-if ($("#ntp").prop('checked')) {
-        use_ntp = 1;
-}
-$.ajax( { type : 'POST',
-          data : {
-			type: setting,
-			ntp: use_ntp,
-			delay: Math.floor($("#delay").val()) * 60,
-			date: use_date
-		},
-          url  : 'update_settings.php',
-          success: function ( data ) {
-            alert( data );
-          },
-          error: function ( xhr ) {
-            alert( "error" );
-          }
-        });
+    if (Math.floor($("#delay").val()) > 0 && Math.floor($("#delay").val()) <= 1440)
+	{
+        var use_date = 0;
+        if ($("#date").prop('checked')) {
+                use_date = 1;
+        }
+        var use_ntp = 0;
+        if ($("#ntp").prop('checked')) {
+                use_ntp = 1;
+        }
+
+        $.ajax( { type : 'POST',
+                  data : {
+                                type: setting,
+                                ntp: use_ntp,
+                                delay: Math.floor($("#delay").val()) * 60,
+                                date: use_date
+                        },
+                  url  : 'update_settings.php',
+                  success: function ( data ) {
+                    alert( data );
+                  },
+                  error: function ( xhr ) {
+                    alert( "error" );
+                  }
+         });
+    }
 }
 $(function() {
 	// Disable form submission, it's all handled via JavaScript.
