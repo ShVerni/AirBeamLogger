@@ -27,7 +27,7 @@ if settings == "":
 	exit(1)
 
 counter = 0
-delay = int(settings["delay"]) * 60
+delay = int(settings["delay"])
 use_date = int(settings["date"])
 use_ntp = int(settings["ntp"])
 # Set initial date.
