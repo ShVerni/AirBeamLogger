@@ -191,7 +191,7 @@ sudo cp AirBeamLogger-master/wpa_supplicant/wpa_supplicant-enterprise.conf /etc/
 sudo chown root:root /etc/wpa_supplicant/wpa_supplicant.conf
 sudo chmod 644 /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-Run `sudo /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate WiFi network name and your user name and password for the network. Change the `country` parameter in the file if needed to match your country, then save and close the file.
+Run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate WiFi network name and your user name and password for the network. Change the `country` parameter in the file if needed to match your country, then save and close the file.
 
 For a WPA2 network run:
 ```bash
@@ -202,7 +202,7 @@ sudo cp AirBeamLogger-master/wpa_supplicant/wpa_supplicant-wpa.conf /etc/wpa_sup
 sudo chown root:root /etc/wpa_supplicant/wpa_supplicant.conf
 sudo chmod 644 /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-Run `sudo /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate WiFi network name and password. Change the `country` parameter in the file if needed to match your country, then save and close the file.
+Run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate WiFi network name and password. Change the `country` parameter in the file if needed to match your country, then save and close the file.
 
 To enable the static IP address for the access point, run the command
 ```bash
