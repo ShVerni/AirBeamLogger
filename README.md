@@ -62,7 +62,7 @@ chmod 766 settings.json
 ```
 The base data logger files are now set up. You can even test it by running the command `sudo python3 data_logger.py` once you connect and turn on your AirBeam2. You should start seeing the data being output to the console after a minute or so. The default data sampling rate is every 5 seconds to help make this testing easier.
 ### Configure the Web Interface
-To set up the Nginx webserver, first start Ngiinx with this command `sudo /etc/init.d/nginx start`. Next run `sudo nano /etc/nginx/sites-enabled/default`. Find the line that says:
+To set up the Nginx webserver, first start Nginx with this command `sudo /etc/init.d/nginx start`. Next run `sudo nano /etc/nginx/sites-enabled/default`. Find the line that says:
 ```bash
 index index.html index.htm;
 ```
