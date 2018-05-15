@@ -1,9 +1,9 @@
 # AirBeamLogger
-This project is for a stand-alone data logger for the [AirBeam2](http://www.takingspace.org/aircasting/airbeam/) air quality monitor. The AirBeam2 is a relatively inexpensive device that can measure air quality, and while it does an excellent job when connected to the cloud to report data, it does have some limitations that this project seeks to address. The AirBeam2 can connect via WiFi or cellular radios, but it does not support the WPA-Enterprise protected networks often found in schools and offices. It also cannot operate without a tethered smartphone or laptop in areas where there may not be a reliable signal, or any signal at all, such as subway tunnels, caves, and basements.
+This project is for a stand-alone data logger for the [AirBeam2](http://www.takingspace.org/aircasting/airbeam/) air quality monitor. The AirBeam2 is a relatively inexpensive device that can measure air quality, and while it does an excellent job when connected to the cloud to report data, it does have some limitations that this project seeks to address. The AirBeam2 can connect via Wi-Fi or cellular radios, but it does not support the WPA-Enterprise protected networks often found in schools and offices. It also cannot operate without a tethered smartphone or laptop in areas where there may not be a reliable signal, or any signal at all, such as subway tunnels, caves, and basements.
 
 This data logger addressed those issues by plugging the AirBeam2 into a Raspberry Pi which will record the data from the AirBeam2 and store it internally. The Raspberry Pi will also broadcast an access point which can be connected to in order to retrieve the data and control the system. This gives the AirBeam2 greater flexibility in how and where it can be used.
 ## Features
-* Creates a WiFI access point for easy data retrieval and control
+* Creates a Wi-Fi access point for easy data retrieval and control
 * Easy to use web interface
 * Plenty of storage for weeks or months of data (depends on SD card size)
 * Can be easily solar or battery powered via USB battery pack or solar phone charger
@@ -28,11 +28,11 @@ These instructions will walk you through setting up the data logger. This guide 
 ### Configure the AirBeam2
 You'll need to connect to your AirBeam2 via the AirCasting app and configure it for a mobile session (see the instructions in the AirBeam2 link above). This only needs to be done once, and afterwards you no longer need the AirCasting app. After doing this you should be able to turn on your AirBeam2 and see the indicator LED blinking red after a minute or two; this means everything is working.
 ### Configure the Raspberry Pi
-Set up your Raspberry Pi with Raspbian or Raspbian lite (you can refer to the [official documentation](https://www.raspberrypi.org/help/) for help). If you're setting up your Pi headlessly (without a monitor or keyboard) you can refer to [this guide](https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup) for help. The WiFI with DHCP option works well for the Pi Zero W.
+Set up your Raspberry Pi with Raspbian or Raspbian lite (you can refer to the [official documentation](https://www.raspberrypi.org/help/) for help). If you're setting up your Pi headlessly (without a monitor or keyboard) you can refer to [this guide](https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup) for help. The Wi-Fi with DHCP option works well for the Pi Zero W.
 
-You will need an Internet connection for the start of this process so please ensure your Pi is connected via Ethernet or Wifi to the Internet. SSH into your Pi and run the command `sudo raspi-config`. While you can confgiure all the options here, the important ones are:
+You will need an Internet connection for the start of this process so please ensure your Pi is connected via Ethernet or Wi-Fi to the Internet. SSH into your Pi and run the command `sudo raspi-config`. While you can confgiure all the options here, the important ones are:
 * Change User Password
-* Network Options > N3 Network interface names > No (important to ensure wlan0 is the WiFi interface name)
+* Network Options > N3 Network interface names > No (important to ensure wlan0 is the Wi-Fi interface name)
 * Boot Options > B1 Desktop / CLI > B2 Console Autologin
 * Localisation Options (do each item in this submenu, especially setting the time zone which is important for timestamping)
 * Advanced Options > A1 Expand Filesystem
@@ -191,7 +191,7 @@ sudo cp AirBeamLogger-master/wpa_supplicant/wpa_supplicant-enterprise.conf /etc/
 sudo chown root:root /etc/wpa_supplicant/wpa_supplicant.conf
 sudo chmod 644 /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-Run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate WiFi network name and your user name and password for the network. Change the `country` parameter in the file if needed to match your country, then save and close the file.
+Run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate Wi-Fi network name and your user name and password for the network. Change the `country` parameter in the file if needed to match your country, then save and close the file.
 
 For a WPA2 network run:
 ```bash
@@ -202,7 +202,7 @@ sudo cp AirBeamLogger-master/wpa_supplicant/wpa_supplicant-wpa.conf /etc/wpa_sup
 sudo chown root:root /etc/wpa_supplicant/wpa_supplicant.conf
 sudo chmod 644 /etc/wpa_supplicant/wpa_supplicant.conf
 ```
-Run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate WiFi network name and password. Change the `country` parameter in the file if needed to match your country, then save and close the file.
+Run `sudo nano /etc/wpa_supplicant/wpa_supplicant.conf` and enter in the appropriate Wi-Fi network name and password. Change the `country` parameter in the file if needed to match your country, then save and close the file.
 
 To enable the static IP address for the access point, run the command
 ```bash
@@ -226,7 +226,7 @@ wpa_group_rekey=86400
 ieee80211n=1
 wme_enabled=1
 ```
-Change `<passphrase>` to the WiFi password you'd like to use. Save and close the file.
+Change `<passphrase>` to the Wi-Fi password you'd like to use. Save and close the file.
 
 Run `sudo nano /etc/default/hostapd` and edit the file so that the line reading
 ```bash
