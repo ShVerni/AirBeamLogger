@@ -12,7 +12,7 @@ The data logger supports several measurement modes depending on what you need. T
 #### Date and Time Stamp
 If this is enabled, the data logger will synchronize  the Raspberry Pi's clock to your computer's clock whenever you click the `Start Data Logger` button in the web interface. It will then include the date and time stamp with every data point. If this mode is disabled, the data logger will include with each data point how many minutes have passed since starting the data logger. The time stamp mode is great for a couple of days, but the clock can tend to drift over time. To keep the clock accurate over longer peiods of time, see the next section.
 #### NTP Time Sync
-When enabled along with Date and Time Stamp mode, this mode will synchronize the Raspberry Pi's clock using NTP whenever the data logger is started and once every 24-hours thereafter. This requires that you've configured either a WPA or WPA-Enterprise network in the [Configure the Access Point](#configure-the-access-point) section. This will also mean that data logger takes an additional minute or so to start up.
+When enabled along with Date and Time Stamp mode, this mode will synchronize the Raspberry Pi's clock using NTP whenever the data logger is started and once every 24-hours thereafter. This requires that you've configured either a WPA or WPA-Enterprise network in the [Configure the Access Point](#configure-the-access-point) section. This will also mean that the data logger takes an additional minute or so to start up.
 
 ## Materials
 For this project you will need the following items:
@@ -26,7 +26,7 @@ There is a convenient [starter kit](https://www.amazon.com/CanaKit-Raspberry-Wir
 ## Setting Up
 These instructions will walk you through setting up the data logger. This guide assumes you're already familiar with the basics of the Linux command line and the Raspberry Pi. It is not recommended to do this setup by connecting to SSH via the Raspberry Pi's wireless connection, as this will cause problems when setting up the access point. Connecting via Ethernet or plugging in a keyboard and monitor works well.
 ### Configure the AirBeam2
-You'll need to connect to your AirBeam2 via the AirCasting app and configure it for a mobile session (see the instructions in the AirBeam2 link above). This only needs to be done once, and afterwards you no longer need the AirCasting app. After doing this you should be able to turn on your AirBeam2 and see the indicator LED blinking red after a minute or two; this means everything is working.
+You'll need to connect to your AirBeam2 via the AirCasting app and configure it for a mobile session (see the instructions in the AirBeam2 link above). This only needs to be done once, and afterwards you no longer need the AirCasting app. After doing this you should be able to turn on your AirBeam2 and see the indicator LED blinking red after a minute or two (the AirBeam2 should *not* be connected to the AirCasting app at this point); this means everything is working.
 ### Configure the Raspberry Pi
 Set up your Raspberry Pi with Raspbian or Raspbian lite (you can refer to the [official documentation](https://www.raspberrypi.org/help/) for help). If you're setting up your Pi headlessly (without a monitor or keyboard) you can refer to [this guide](https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup) for help. The Wi-Fi with DHCP option works well for the Pi Zero W.
 
@@ -62,7 +62,7 @@ chmod 766 settings.json
 ```
 The base data logger files are now set up. You can even test it by running the command `sudo python3 data_logger.py` once you connect and turn on your AirBeam2. You should start seeing the data being output to the console after a minute or so. The default data sampling rate is every 5 seconds to help make this testing easier.
 ### Configure the Web Interface
-To set up the Nginx webserver, first start Nginx with this command `sudo /etc/init.d/nginx start`. Next run `sudo nano /etc/nginx/sites-enabled/default`. Find the line that says:
+To set up the Nginx webserver, first start Nginx with the command `sudo /etc/init.d/nginx start`. Next run `sudo nano /etc/nginx/sites-enabled/default`. Find the line that says:
 ```bash
 index index.html index.htm;
 ```
@@ -84,7 +84,7 @@ Then find the lines that read
 # }
 
 ```
-and chage it to read
+and chage them to read
 ```bash
 # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 #
@@ -180,7 +180,7 @@ sudo chown root:root /etc/network/interfaces /etc/network/interfaces.ap
 sudo chmod 644 /etc/network/interfaces /etc/network/interfaces.ap
 ```
 
-What you do next depends on if you're planning to use the NTP functionality with a WPA-Enterprise network or a regular WPA2 network (if you're not planning to use it at all you can skip this).
+What you do next depends on if you're planning to use the NTP functionality with a WPA-Enterprise network or a regular WPA2 network (if you're not planning to use NTP at all you can skip this).
 
 For a WPA-Enterprise network run the following commands:
 ```bash
@@ -236,7 +236,7 @@ instead reads (be sure to remove the leading `#`)
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
-Then run `sudo nano /etc/init.d/hostapd` and find the line that read
+Then run `sudo nano /etc/init.d/hostapd` and find the line that reads
 ```bash
 DAEMON_CONF=
 ```
