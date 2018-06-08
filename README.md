@@ -1,7 +1,7 @@
 # AirBeamLogger
 This project is for a stand-alone data logger for the [AirBeam2](http://www.takingspace.org/aircasting/airbeam/) air quality monitor. The AirBeam2 is a relatively inexpensive device that can measure air quality, and while it does an excellent job when connected to the cloud to report data, it does have some limitations that this project seeks to address. The AirBeam2 can connect via Wi-Fi or cellular radios, but it does not support the WPA-Enterprise protected networks often found in schools and offices. It also cannot operate without a tethered smartphone or laptop in areas where there may not be a reliable signal, or any signal at all, such as subway tunnels, caves, and basements.
 
-This data logger addressed those issues by plugging the AirBeam2 into a Raspberry Pi which will record the data from the AirBeam2 and store it internally. The Raspberry Pi will also broadcast an access point which can be connected to in order to retrieve the data and control the system. This gives the AirBeam2 greater flexibility in how and where it can be used.
+This data logger addresses those issues by plugging the AirBeam2 into a Raspberry Pi which will record the data from the AirBeam2 and store it internally. The Raspberry Pi will also broadcast an access point which can be connected to in order to retrieve the data and control the system. This gives the AirBeam2 greater flexibility in how and where it can be used.
 ## Features
 * Creates a Wi-Fi access point for easy data retrieval and control
 * Easy to use web interface
@@ -26,7 +26,7 @@ There is a convenient [starter kit](https://www.amazon.com/CanaKit-Raspberry-Wir
 ## Setting Up
 These instructions will walk you through setting up the data logger. This guide assumes you're already familiar with the basics of the Linux command line and the Raspberry Pi. It is not recommended to do this setup by connecting to SSH via the Raspberry Pi's wireless connection, as this will cause problems when setting up the access point. Connecting via Ethernet or plugging in a keyboard and monitor works well.
 ### Configure the AirBeam2
-You'll need to connect to your AirBeam2 via the AirCasting app and configure it for a mobile session (see the instructions in the AirBeam2 link above). This only needs to be done once, and afterwards you no longer need the AirCasting app. After doing this you should be able to turn on your AirBeam2 and see the indicator LED blinking red after a minute or two (the AirBeam2 should *not* be connected to the AirCasting app at this point); this means everything is working.
+You'll need to connect to your AirBeam2 via the AirCasting app and configure it for a mobile session (see the instructions in the AirBeam2 link above). You should be able to start a session and see the data on your smartphone if everything is wroking. This only needs to be done once, and afterwards you no longer need the AirCasting app. After doing this you should be able to turn on your AirBeam2 and see the indicator LED blinking red after a minute or two (the AirBeam2 should *not* be connected to the AirCasting app at this point); this means everything is working.
 ### Configure the Raspberry Pi
 Set up your Raspberry Pi with Raspbian or Raspbian lite (you can refer to the [official documentation](https://www.raspberrypi.org/help/) for help). If you're setting up your Pi headlessly (without a monitor or keyboard) you can refer to [this guide](https://learn.sparkfun.com/tutorials/headless-raspberry-pi-setup) for help. The Wi-Fi with DHCP option works well for the Pi Zero W.
 
