@@ -246,4 +246,4 @@ DAEMON_CONF=/etc/hostapd/hostapd.conf
 ```
 Lastly, run `sudo update-rc.d hostapd enable`. You should be able to reboot the Raspberry Pi and see and connect to the access point. You can access the web interface by typing `192.168.3.1` in your browser.
 
-And you're done! Your data logger is now ready to grab some date. This can be easily modified to further process or upload the data somewhere else, or to work with other devices besides the AirBeam2 that have USB serial interfaces, or even those with SPI, UART, or I2C interfaces.
+And you're done! Your data logger is now ready to grab some data. This can be easily modified to further process or upload the data somewhere else, or to work with other devices besides the AirBeam2 that have USB serial interfaces, or even those with SPI, UART, or I2C interfaces.
