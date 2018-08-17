@@ -14,9 +14,9 @@ sleep 5
 # Set time via NTP
 sudo timedatectl set-ntp True
 sudo timedatectl set-ntp False
-# Stop DHVP service
+# Stop DHCP service
 sudo service dhcpcd stop
-# Assign static address bring interface down
+# Assign static address, bring interface down
 sudo ifconfig wlan0 192.168.3.1
 sudo ifdown wlan0
 # Swap interface confguration back
