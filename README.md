@@ -1,7 +1,7 @@
 # AirBeamLogger
 This project is for a stand-alone data logger for the [AirBeam2](http://www.takingspace.org/aircasting/airbeam/) air quality monitor. The AirBeam2 is a relatively inexpensive device that can measure air quality, and while it does an excellent job when connected to the cloud to report data, it does have some limitations that this project seeks to address. The AirBeam2 can connect via Wi-Fi or cellular radios, but it does not support the WPA-Enterprise protected networks often found in schools and offices. It also cannot operate without a tethered smartphone or laptop in areas where there may not be a reliable signal, or any signal at all, such as subway tunnels, caves, and basements.
 
-This data logger addresses those issues by plugging the AirBeam2 into a Raspberry Pi which will record the data from the AirBeam2 and store it internally. The Raspberry Pi will also broadcast an access point which can be connected to in order to retrieve the data and control the system. This gives the AirBeam2 greater flexibility in how and where it can be used.
+This [data logger](http://www.takingspace.org/raspberry-pi-airbeam-data-logger/) addresses those issues by plugging the AirBeam2 into a Raspberry Pi which will record the data from the AirBeam2 and store it internally. The Raspberry Pi will also broadcast an access point which can be connected to in order to retrieve the data and control the system. This gives the AirBeam2 greater flexibility in how and where it can be used.
 ## Features
 * Creates a Wi-Fi access point for easy data retrieval and control
 * Easy to use web interface
@@ -246,4 +246,4 @@ DAEMON_CONF=/etc/hostapd/hostapd.conf
 ```
 Lastly, run `sudo update-rc.d hostapd enable`. You should be able to reboot the Raspberry Pi and see and connect to the access point. You can access the web interface by typing `192.168.3.1` in your browser.
 
-And you're done! Your data logger is now ready to grab some date. This can be easily modified to further process or upload the data somewhere else, or to work with other devices besides the AirBeam2 that have USB serial interfaces, or even those with SPI, UART, or I2C interfaces.
+And you're done! Your data logger is now ready to grab some data. This can be easily modified to further process or upload the data somewhere else, or to work with other devices besides the AirBeam2 that have USB serial interfaces, or even those with SPI, UART, or I2C interfaces.
