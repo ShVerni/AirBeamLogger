@@ -108,7 +108,7 @@ sudo cp AirBeamLogger-master/html/* /var/www/html/
 sudo chown root:root /var/www/html/*
 sudo chmod 644 /var/www/html/*
 ```
-Lastly, you need to give the www-data user sudo permission (__WARNING:__ This is generally not a good idea security wise, but since this device will almost never be accessible over a network aside from its own protected access point, this is okay. Do *not* do this if you plan to have your Raspberry Pi permanently connected to a network). To do this, run `sudo visudo` and edit the file to find the section that reads:
+Lastly, you need to give the www-data user sudo permission (__WARNING:__ This is generally not a good idea security wise, but since this device will almost never be accessible over a network aside from its own protected access point, this is okay. Do *not* do this if you plan to have your Raspberry Pi permanently connected to a network). To do this, run `sudo visudo` to edit the file and find the section that reads:
 ```bash
 # User privilege specification
 root    ALL=(ALL:ALL) ALL
@@ -121,7 +121,7 @@ www-data    ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 Save and close the file.
 
-You should now be able to connect to the webserver by opening up your borwoser and pointing it at the Raspberry Pi's IP address. Sometimes a reboot is required.
+You should now be able to connect to the webserver by opening up your browser and pointing it at the Raspberry Pi's IP address. Sometimes a reboot is required.
 ### Configure the Access Point
 Setting up the access point is based on [this guide](https://learn.adafruit.com/setting-up-a-raspberry-pi-as-a-wifi-access-point/overview) with a lot of customization. Run to command `sudo nano /etc/dhcp/dhcpd.conf` and make the following changes to the file:
 Find the lines that read
@@ -180,7 +180,7 @@ sudo chown root:root /etc/network/interfaces /etc/network/interfaces.ap
 sudo chmod 644 /etc/network/interfaces /etc/network/interfaces.ap
 ```
 
-What you do next depends on if you're planning to use the NTP functionality with a WPA-Enterprise network or a regular WPA2 network (if you're not planning to use NTP at all you can skip this).
+What you do next depends on if you're planning to use the NTP functionality with a WPA-Enterprise network or a regular WPA2 network (if you're not planning to use NTP at all you can skip down to enabling the static IP).
 
 For a WPA-Enterprise network run the following commands:
 ```bash
