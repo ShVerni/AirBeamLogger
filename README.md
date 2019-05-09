@@ -2,6 +2,10 @@
 This project is for a stand-alone data logger for the [AirBeam2](http://www.takingspace.org/aircasting/airbeam/) air quality monitor. The AirBeam2 is a relatively inexpensive device that can measure air quality, and while it does an excellent job when connected to the cloud to report data, it does have some limitations that this project seeks to address. The AirBeam2 can connect via Wi-Fi or cellular radios, but it does not support the WPA-Enterprise protected networks often found in schools and offices. It also cannot operate without a tethered smartphone or laptop in areas where there may not be a reliable signal, or any signal at all, such as subway tunnels, caves, and basements.
 
 This [data logger](http://www.takingspace.org/raspberry-pi-airbeam-data-logger/) addresses those issues by plugging the AirBeam2 into a Raspberry Pi which will record the data from the AirBeam2 and store it internally. The Raspberry Pi will also broadcast an access point which can be connected to in order to retrieve the data and control the system. This gives the AirBeam2 greater flexibility in how and where it can be used.
+
+## Update for firmware 3.7.19
+As noted by [Hairem](https://github.com/ShVerni/AirBeamLogger/issues/4), an update to the AirBeam2 firmware (at least as of 3.7.19) has changed the format of the serial output the AirBeam2 produces. The [data_logger.py](https://github.com/ShVerni/AirBeamLogger/blob/master/data_logger.py) file has been updated to account for this, as well as some output formatting improvements. If you are using an earlier firmware, you can replace data_logger.py with [data_logger_old.py](https://github.com/ShVerni/AirBeamLogger/blob/master/data_logger_old.py) (renaming it to data_logger.py) to get the original functionality.
+
 ## Features
 * Creates a Wi-Fi access point for easy data retrieval and control
 * Easy to use web interface
