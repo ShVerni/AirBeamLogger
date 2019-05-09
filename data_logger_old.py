@@ -5,8 +5,6 @@ import os
 import shutil
 import subprocess
 import json
-import os.path
-
 # Initialize variables.
 output_path = '/home/pi/output.csv'
 server_path = '/var/www/html/output.csv'
@@ -46,21 +44,13 @@ while 1:
 	data = x.decode('UTF-8').strip().split(' ')
 	print(data)
 	# Check for good data and output to file.
-	if len(data) > 23:
-		# Check in file exists or it's a new file.
-		newfile = not os.path.isfile(output_path)
+	if len(data) > 10:
 		with open(output_path, 'a') as output:
 			if use_date == 1:
-				if (newfile):
-					# Write first line of new file
-					output.write("Time, Temperature (C), %RH, PM1, PM2.5, PM10\r\n")
-				output.write(time.strftime("%Y/%m/%d %H:%M:%S") + "," + data[15] + "," + data[17] + "," + data[19] + "," + data[21] + "," + data[23] + "\r\n")
+				output.write(time.strftime("%Y/%m/%d %H:%M:%S") + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + "," + data[6] + "," + data[7] + "," + data[8] + "," + data[9] + "," + data[10] + "\r\n")
 			else:
-				if (newfile):
-					# Write first line of new file
-					output.write("Timepoint, Temperature (C), %RH, PM1, PM2.5, PM10\r\n")
 				timepoint = (counter * delay) / 60
-				output.write(str(timepoint) + "," + data[15] + "," + data[17] + "," + data[19] + "," + data[21] + "," + data[23] + "\r\n")
+				output.write(str(timepoint) + "," + data[2] + "," + data[3] + "," + data[4] + "," + data[5] + "," + data[6] + "," + data[7] + "," + data[8] + "," + data[9] + "," + data[10] + "\r\n")
 		# Copy output to server directory.
 		shutil.copy(output_path, server_path)
 	counter += 1
