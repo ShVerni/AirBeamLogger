@@ -247,3 +247,11 @@ DAEMON_CONF=/etc/hostapd/hostapd.conf
 Lastly, run `sudo update-rc.d hostapd enable`. You should be able to reboot the Raspberry Pi and see and connect to the access point. You can access the web interface by typing `192.168.3.1` in your browser.
 
 And you're done! Your data logger is now ready to grab some data. This can be easily modified to further process or upload the data somewhere else, or to work with other devices besides the AirBeam2 that have USB serial interfaces, or even those with SPI, UART, or I2C interfaces.
+
+## Troubleshooting
+If you're having issues with your AirBeam not sending data to your Raspberry Pi here are a few troubleshooting steps you can try to fix the problem:
+* Make sure your AirBeam is fully charged before connecting to your Pi (this isn't strictly necessary, but if the battery is too low it may try to draw too much power for the Pi's USB port to handle).
+* Turn on your AirBeam first and make sure the red LED is blinking before turning on your Pi.
+* The Raspberry Pi Zero case sometimes prevents the USB cable from being fully inserted into the Pi's USB port. Try removing the case and inserting the cable fully, or even try a different USB cable if possible.
+* Connect to the AirBeam via the AirCasting app and start the mobile session again as described [here](https://github.com/ShVerni/AirBeamLogger/blob/master/README.md#configure-the-airbeam2). Thanks to [stopfortheklopp](https://github.com/ShVerni/AirBeamLogger/issues/3) for finding that.
+* You can plug your AirBeam into a computer vis USB and connect to it with a serial monitor like PuTTY or the [Arduino](https://www.arduino.cc/en/Main/Software) app using a baud rate of 9600 kbps. You can then see any status messages or data the AirBeam is sending. Any error messages might help identify a problem, or if you see the data being sent like normal, it means your problem isn't the AirBeam at least.
