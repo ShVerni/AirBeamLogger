@@ -255,6 +255,7 @@ And you're done! Your data logger is now ready to grab some data. This can be ea
 ## Troubleshooting
 If you're having issues with your AirBeam not sending data to your Raspberry Pi here are a few troubleshooting steps you can try to fix the problem:
 * Make sure your AirBeam is fully charged before connecting to your Pi (this isn't strictly necessary, but if the battery is too low it may try to draw too much power for the Pi's USB port to handle).
+* Fully boot your Raspberry Pi first and then turn on your AirBeam. Wait until the red LED is blinking on the AirBeam before starting the data logger; it could take over a minute for the AirBeam to be ready.
 * Turn on your AirBeam first and make sure the red LED is blinking before turning on your Pi.
 * The Raspberry Pi Zero case sometimes prevents the USB cable from being fully inserted into the Pi's USB port. Try removing the case and inserting the cable fully, or even try a different USB cable if possible.
 * Connect to the AirBeam via the AirCasting app and start the mobile session again as described [here](https://github.com/ShVerni/AirBeamLogger/blob/master/README.md#configure-the-airbeam2). Thanks to [stopfortheklopp](https://github.com/ShVerni/AirBeamLogger/issues/3) for finding that.
