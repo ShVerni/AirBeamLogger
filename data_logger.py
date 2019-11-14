@@ -38,15 +38,21 @@ if (use_date == 1) and (use_ntp == 1):
 	subprocess.call(['/home/pi/sync_time.sh'])
 # Start measurement loop.
 while 1:
-	# Empty serial buffer.
-	ser.flushInput()
-	# Read data.
-	x=ser.readline()
-	# Parse data.
-	data = x.decode('UTF-8').strip().split(' ')
-	print(data)
+	data = [];
+	retries = 10;
+	while len(data) != 24 and retries > 0:
+		# Empty serial buffer.
+		ser.flushInput()
+		# Read data.
+		x=ser.readline()
+		# Parse data.
+		data = x.decode('UTF-8').strip().split(' ')
+		print(data)
+		# Short delay to retry reading data if necessary.
+		time.sleep(0.1)
+		retries -= 1;
 	# Check for good data and output to file.
-	if len(data) > 23:
+	if len(data) == 24:
 		# Check in file exists or it's a new file.
 		newfile = not os.path.isfile(output_path)
 		with open(output_path, 'a') as output:
