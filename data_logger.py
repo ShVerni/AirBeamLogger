@@ -53,7 +53,7 @@ while 1:
 		retries -= 1;
 	# Check for good data and output to file.
 	if len(data) == 24:
-		# Check in file exists or it's a new file.
+		# Check if file exists or it's a new file.
 		newfile = not os.path.isfile(output_path)
 		with open(output_path, 'a') as output:
 			if use_date == 1:
